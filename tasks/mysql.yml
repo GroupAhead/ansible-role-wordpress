@@ -5,8 +5,8 @@
     name={{ wp_db_name }}
     state=present
     login_host={{ wp_db_host }}
-    login_user={{ wp_db_user}}
-    login_password={{ wp_db_password }}
+    login_user={{ mysql_root_user }}
+    login_password={{ mysql_root_password }}
   register: wp_mysql_db_create
 
 - name: Copy saved database to server
@@ -34,5 +34,5 @@
     priv='{{ wp_db_name }}.*:ALL'
     state=present
     login_host={{ wp_db_host }}
-    login_user={{ wp_db_user}}
-    login_password={{ wp_db_password }}
+    login_user={{ mysql_root_user}}
+    login_password={{ mysql_root_password }}
